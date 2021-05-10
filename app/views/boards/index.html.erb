@@ -1,0 +1,22 @@
+<h1>掲示板</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>作成者</th>
+      <th>更新日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @boards.each do |board| %>
+      <tr>
+        <td><%= board.id %></td>
+        <td><%= board.title %></td>
+        <td><%= board.name %>
+        <td><%= board.updated_at %>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
