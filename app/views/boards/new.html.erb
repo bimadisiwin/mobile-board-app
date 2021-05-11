@@ -1,0 +1,26 @@
+<h1>新規追加</h1>
+<%= link_to '一覧', boards_path%>
+<% if flash[:error_messages] %>
+  <ul>
+    <% flash[:error_messages].each do |error_message| %>
+      <li><%= error_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_with model: @board do |f| %>
+  <div>
+    <%= f.label :title, 'タイトル' %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :body, '本文' %>
+    <%= f.text_area :body , rows: 10 %>
+  </div>
+  
+  <%= f.submit '保存' %>
+  
+<% end %>
+
+

@@ -1,4 +1,8 @@
 <h1>掲示板</h1>
+<% if flash[:notice] %>
+  <div><%= flash[:notice] %></div>
+<% end %>
+<%= link_to '新規作成', boards_new_path %>
 <table>
   <thead>
     <tr>
@@ -14,7 +18,7 @@
         <td><%= board.id %></td>
         <td><%= board.title %></td>
         <td><%= board.name %>
-        <td><%= board.updated_at %>
+        <td><%= board.updated_at.strftime('%Y/%m/%-d %I:%M%p') %>
       </tr>
     <% end %>
   </tbody>
