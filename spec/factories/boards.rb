@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :board do
-    name { "MyString" }
-    title { "MyString" }
-    body { "MyText" }
+    title { 'タイトル' }
+    body { '本文' }
   end
 end
