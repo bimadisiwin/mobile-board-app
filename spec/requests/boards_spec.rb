@@ -2,8 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Boards', type: :request do
   describe 'GET /index' do
-    it 'returns http success' do
-      get 'http://localhost:3000/'
+    it 'リクエストが成功すること' do
+      get '/boards'
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET #new' do
+    it 'リクエストが成功すること' do
+      get new_user_url
       expect(response).to have_http_status(:success)
     end
   end

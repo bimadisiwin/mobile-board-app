@@ -38,6 +38,7 @@ group :development, :test do
   gem 'gimei'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'simplecov'
   gem 'webdrivers'
 end
 
