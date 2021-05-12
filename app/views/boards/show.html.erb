@@ -1,7 +1,10 @@
 <div>
   <h1>掲示板詳細</h1>
+  <% if flash[:notice] %>
+    <div><%= flash[:notice] %></div>
+  <% end %>
   <%= link_to '一覧', boards_path %>
-  <%= link_to '編集', nil %>
+  <%= link_to '編集', edit_board_path %>
 </div>
 
 <div>

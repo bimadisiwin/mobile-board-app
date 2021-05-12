@@ -23,6 +23,17 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
+  def edit
+    @board = Board.find(params[:id])
+  end
+
+  def update
+    # ビューに表示しないのでインスタンス変数ではなく、ローカル変数に代入
+    board = Board.find(params[:id])
+    board.update(board_params)
+    redirect_to board, flash: { notice: "「 #{board.title} の掲示板を編集しました」" }
+  end
+
   private
 
   def board_params

@@ -35,10 +35,38 @@ RSpec.describe 'Boards', type: :system do
       expect(page).to have_link '新規作成'
       click_on '新規作成'
       expect(page).to have_content '新規追加'
-      click_on '一覧'
     end
 
     it '掲示板詳細画面に遷移できる' do
+      visit boards_path
+      expect(page).to have_content '掲示板'
+      expect(page).to have_link '詳細'
+      click_link '詳細'
+      expect(page).to have_content '掲示板詳細'
+    end
+  end
+
+  context '掲示板に投稿がある場合' do
+    before do
+      create(:board)
+    end
+
+    it '投稿を編集できる' do
+      visit boards_path
+      expect(page).to have_content '掲示板'
+      expect(page).to have_link '詳細'
+      click_link '詳細'
+      expect(page).to have_content '掲示板詳細'
+      expect(page).to have_link '編集'
+      click_on '編集'
+      fill_in 'タイトル', with: '編集されたタイトル'
+      fill_in '本文', with: 'テストの本文を編集'
+      click_on'保存'
+      expect(page).to have_content '編集されたタイトル の掲示板を編集しました'
+      expect(page).to have_content 'テストの本文を編集'
+    end
+
+    xit '掲示板詳細画面に遷移できる' do
       visit boards_path
       expect(page).to have_content '掲示板'
       expect(page).to have_link '詳細'
