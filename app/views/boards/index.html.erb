@@ -20,6 +20,7 @@
         <td><%= board.name %></td>
         <td><%= board.updated_at.strftime('%Y/%m/%-d %I:%M%p') %></td>
         <td><%= link_to '詳細', board %></td>
+        <td><%= link_to 'x', board, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

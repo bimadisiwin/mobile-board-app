@@ -34,6 +34,11 @@ class BoardsController < ApplicationController
     redirect_to board, flash: { notice: "「 #{board.title} の掲示板を編集しました」" }
   end
 
+  def destroy
+    board = Board.find(params[:id])
+    board.delete
+    redirect_to boards_path, flash: { notice: "「 #{board.title} の掲示板を削除しました」" }
+  end
   private
 
   def board_params

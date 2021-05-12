@@ -66,12 +66,11 @@ RSpec.describe 'Boards', type: :system do
       expect(page).to have_content 'テストの本文を編集'
     end
 
-    xit '掲示板詳細画面に遷移できる' do
+    it '投稿を削除できる' do
       visit boards_path
       expect(page).to have_content '掲示板'
-      expect(page).to have_link '詳細'
-      click_link '詳細'
-      expect(page).to have_content '掲示板詳細'
+      click_on 'x'
+      expect(page).to have_content 'テストのタイトル の掲示板を削除しました'
     end
   end
 end
