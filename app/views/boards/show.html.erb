@@ -1,0 +1,17 @@
+<div>
+  <h1>掲示板詳細</h1>
+  <%= link_to '一覧', boards_path %>
+  <%= link_to '編集', nil %>
+</div>
+
+<div>
+  <h4><%= @board.title %></h4>
+  <div>
+    <%= simple_format(@board.body) %>
+    <%= @board.name %>
+  </div>
+</div>
+
+
+
+
