@@ -39,6 +39,7 @@ class BoardsController < ApplicationController
     board.delete
     redirect_to boards_path, flash: { notice: "「 #{board.title} の掲示板を削除しました」" }
   end
+
   private
 
   def board_params
