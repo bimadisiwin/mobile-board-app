@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all
+    # @boards = Board.all
+    @boards = Board.page(params[:page])
   end
 
   def new

@@ -4,3 +4,10 @@ ja:
       board:
         title: タイトル
         body: 本文
+  views:
+    pagination:
+      first: 最初へ
+      last: 最後へ
+      previous: 前へ
+      next: 次へ
+      truncate: ...
