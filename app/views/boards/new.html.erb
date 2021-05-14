@@ -1,5 +1,6 @@
 <h1>新規追加</h1>
 <%= link_to '一覧', boards_path%>
+<%= current_user.username %>
 <% if flash[:error_messages] %>
   <ul>
     <% flash[:error_messages].each do |error_message| %>

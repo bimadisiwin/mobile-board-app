@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+  before_action :move_to_index, except: %i[index show]
+
   def index
     # @boards = Board.all
     @boards = Board.page(params[:page])
@@ -44,6 +46,10 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:body, :title)
+    params.require(:board).permit(:body, :title).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
   end
 end
